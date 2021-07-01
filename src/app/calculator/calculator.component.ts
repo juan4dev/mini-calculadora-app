@@ -13,7 +13,7 @@ export class CalculatorComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  public getNumber(numberKeyBoard: number) {
+  public getNumber_test_error_build(numberKeyBoard: number) {
     console.log(typeof numberKeyBoard)
     this.actualValue += numberKeyBoard;
   }
