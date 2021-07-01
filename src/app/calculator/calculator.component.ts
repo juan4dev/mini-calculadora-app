@@ -17,7 +17,14 @@ export class CalculatorComponent implements OnInit {
   ngOnInit(): void {}
 
   public getNumber(keyboardNumber: number) {
-    this.presentValue = this.screenValue = keyboardNumber;
+    if (this.screenValue != 0) {
+      this.screenValue += keyboardNumber.toString();
+    } else {
+      this.screenValue = keyboardNumber.toString();
+    }
+
+    this.presentValue = Number(this.screenValue);
+
     if (this.operator) {
       this.carryOutOperation();
     }
@@ -31,7 +38,6 @@ export class CalculatorComponent implements OnInit {
 
   public executeOperation() {
     this.screenValue = this.storedValue;
-    console.log(this.screenValue);
   }
 
   public getOperator(operator: string) {
@@ -45,9 +51,12 @@ export class CalculatorComponent implements OnInit {
   }
 
   private carryOutOperation() {
-    this.storedValue = eval(
+    var tempOperation = eval(
       `${this.storedValue}${this.operator}${this.presentValue}`
     );
+
+    this.storedValue = Math.round((tempOperation + Number.EPSILON) * 100) / 100;
+
     this.operator = undefined;
   }
 }
