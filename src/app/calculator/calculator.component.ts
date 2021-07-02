@@ -11,37 +11,30 @@ export class CalculatorComponent implements OnInit {
 
   public operator: string | undefined;
   public screenValue: number | string = 0;
+  private needReset: boolean = false;
 
   constructor() {}
 
   ngOnInit(): void {}
 
   public getNumber(keyboardNumber: number) {
-    if (this.screenValue != 0) {
-      this.screenValue += keyboardNumber.toString();
-    } else {
-      this.screenValue = keyboardNumber.toString();
-    }
-
+    this.checkScreen(keyboardNumber);
     this.presentValue = Number(this.screenValue);
-
-    if (this.operator) {
-      this.carryOutOperation();
-    }
+    this.carryOutOperation();
   }
 
-  public resetValue() {
-    this.screenValue = 0;
-    this.presentValue = 0;
-    this.storedValue = 0;
+  public getResetValues() {
+    this.resetValues();
   }
 
   public executeOperation() {
     this.screenValue = this.storedValue;
+    this.needReset = true;
   }
 
   public getOperator(operator: string) {
     this.operator = operator;
+    this.needReset = false;
     this.resetScreenAndSaveValue();
   }
 
@@ -51,12 +44,33 @@ export class CalculatorComponent implements OnInit {
   }
 
   private carryOutOperation() {
-    var tempOperation = eval(
-      `${this.storedValue}${this.operator}${this.presentValue}`
-    );
+    if (this.operator) {
+      var tempOperation = eval(
+        `${this.storedValue}${this.operator}${this.presentValue}`
+      );
 
-    this.storedValue = Math.round((tempOperation + Number.EPSILON) * 100) / 100;
+      this.storedValue =
+        Math.round((tempOperation + Number.EPSILON) * 100) / 100;
 
-    this.operator = undefined;
+      this.operator = undefined;
+    }
+  }
+
+  private resetValues() {
+    this.screenValue = 0;
+    this.presentValue = 0;
+    this.storedValue = 0;
+  }
+
+  private checkScreen(keyboardNumber: number) {
+    if (this.needReset) {
+      this.resetValues();
+      this.needReset = false;
+      this.screenValue = keyboardNumber.toString();
+    } else if (this.screenValue) {
+      this.screenValue += keyboardNumber.toString();
+    } else {
+      this.screenValue = keyboardNumber.toString();
+    }
   }
 }
