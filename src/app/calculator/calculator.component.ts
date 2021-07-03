@@ -17,7 +17,7 @@ export class CalculatorComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  public getNumber(keyboardNumber: number) {
+  public getNumber(keyboardNumber: string) {
     this.checkScreen(keyboardNumber);
     this.presentValue = Number(this.screenValue);
     this.carryOutOperation();
@@ -44,7 +44,7 @@ export class CalculatorComponent implements OnInit {
   }
 
   private carryOutOperation() {
-    if (this.operator) {
+    if (this.operator && this.presentValue) {
       var tempOperation = eval(
         `${this.storedValue}${this.operator}${this.presentValue}`
       );
@@ -62,15 +62,15 @@ export class CalculatorComponent implements OnInit {
     this.storedValue = 0;
   }
 
-  private checkScreen(keyboardNumber: number) {
+  private checkScreen(keyboardNumber: string) {
     if (this.needReset) {
       this.resetValues();
       this.needReset = false;
-      this.screenValue = keyboardNumber.toString();
+      this.screenValue = keyboardNumber;
     } else if (this.screenValue) {
-      this.screenValue += keyboardNumber.toString();
+      this.screenValue += keyboardNumber;
     } else {
-      this.screenValue = keyboardNumber.toString();
+      this.screenValue = keyboardNumber;
     }
   }
 }
