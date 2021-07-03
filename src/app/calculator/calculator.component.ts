@@ -29,6 +29,10 @@ export class CalculatorComponent implements OnInit {
 
   public executeOperation() {
     this.screenValue = this.storedValue;
+
+    if ((this.presentValue = 17)) {
+      this.screenValue = 'Love you';
+    }
     this.needReset = true;
   }
 
