@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.css'],
 })
-export class CalculatorComponent implements OnInit {
+export class CalculatorComponent {
   public presentValue: number = 0;
   public storedValue: number = 0;
 
@@ -14,9 +14,6 @@ export class CalculatorComponent implements OnInit {
   private needReset: boolean = false;
 
   constructor() {}
-
-  ngOnInit(): void {}
-
   public getNumber(keyboardNumber: string) {
     this.checkScreen(keyboardNumber);
     this.presentValue = Number(this.screenValue);
