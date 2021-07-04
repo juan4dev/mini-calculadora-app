@@ -30,3 +30,4 @@ jobs:
         base_href: /mini-calculadora-app/ 
         deploy_branch: gh-pages 
         angular_dist_build_folder: dist/mini-calculadora-app
+        run_lint: true
