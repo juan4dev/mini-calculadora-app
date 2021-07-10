@@ -1,85 +1,105 @@
-.calculator {
-  border: 1px solid #ccc;
-  border-radius: 1rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20rem;
-}
-
-.calculator-screen {
-  width: 93%;
-  font-size: 4rem;
-  height: 4rem;
-  border: none;
-  background-color: #252525;
-  color: #fff;
-  text-align: right;
-  margin-left: 0.6rem;
-  margin-top: 0.5rem;
+:host {
+  --main-bg-color: black;
+  --bg-color-screen: rgb(82, 84, 83);
+  --bg-color-ac: rgb(99, 101, 100);
+  --bg-color-numbers: rgb(125, 126, 125);
+  --bg-color-operators: rgb(255, 162, 52);
+  --default-border-radius: 0.5rem;
+  --default-padding: 0.05rem;
+  --default-gap: 0.4px;
+  --width-calculator: 10rem;
 }
 
 button {
-  height: 3.75;
-  background-color: #fff;
-  border-radius: 3px;
-  border: 1px solid #c4c4c4;
-  background-color: transparent;
-  font-size: 2rem;
-  color: #333;
-  background-image: linear-gradient(
-    to bottom,
-    transparent,
-    transparent 50%,
-    rgba(0, 0, 0, 0.04)
-  );
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.45),
-    inset 0 -1px 0 0 rgba(255, 255, 255, 0.15),
-    0 1px 0 0 rgba(255, 255, 255, 0.15);
-  text-shadow: 0 1px rgba(255, 255, 255, 0.4);
+  background-color: var(--bg-color-numbers);
+  color: white;
+  text-decoration: none;
+  border: none;
 }
 
-button:hover {
-  background-color: #eaeaea;
-}
-
-.operator {
-  color: #337cac;
-}
-
-.all-clear {
-  background-color: #f0595f;
-  border-color: #b0353a;
-  color: #fff;
-}
-
-.all-clear:hover {
-  background-color: #f17377;
-}
-
-.equal-sign {
-  background-color: #2e86c0;
-  border-color: #337cac;
-  color: #fff;
-}
-
-.equal-sign:hover {
-  background-color: #4e9ed4;
-}
-
-.calculator-keys {
+.calculator {
+  background: var(--main-bg-color);
+  border-radius: var(--default-border-radius);
+  padding: var(--default-padding);
+  width: var(--width-calculator);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: scale(2) translate(-25%, -25%);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
-  padding: 0.5rem;
+  grid-template-columns: repeat(4, minmax(30px, 1fr));
+  grid-template-rows: repeat(7, minmax(30px, 1fr));
+  grid-template-areas:
+    "calculator-screen calculator-screen calculator-screen calculator-screen"
+    "calculator-screen calculator-screen calculator-screen calculator-screen"
+    "special-operators special-operators special-operators operators"
+    "numbers numbers numbers operators"
+    "numbers numbers numbers operators"
+    "numbers numbers numbers operators"
+    "cero-decimal cero-decimal cero-decimal operators";
+}
+
+.calculator-screen {
+  grid-area: calculator-screen;
+  text-align-last: right;
+  color: white;
+  font-size: 2rem;
+  background-color: var(--bg-color-screen);
+  border-top-left-radius: var(--default-border-radius);
+  border-top-right-radius: var(--default-border-radius);
+}
+
+.special-operators {
+  grid-area: special-operators;
+  display: grid;
+  gap: var(--default-gap);
+  grid-template-columns: repeat(3, minmax(1rem, 1fr));
+  color: white;
+}
+.special-operators > button {
+  background-color: var(--bg-color-ac);
+}
+
+/* .all-clear {
+  grid-area: special-operators;
+  background-color: var(--bg-color-screen) ;
+  color: white;
+}  */
+
+.operators {
+  grid-area: operators;
+  display: grid;
+  gap: var(--default-gap);
+  grid-template-columns: repeat(1, auto);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.operators > button {
+  color: white;
+  background-color: var(--bg-color-operators);
+}
+
+.numbers {
+  grid-area: numbers;
+  display: grid;
+  gap: var(--default-gap);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.cero-decimal {
+  grid-area: cero-decimal;
+  display: grid;
+  gap: var(--default-gap);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.number_cero {
+  grid-column: span 2;
+  border-bottom-left-radius: var(--default-border-radius);
 }
 
 .equal-sign {
-  background-color: #2e86c0;
-  border-color: #337cac;
-  color: #fff;
-  height: 100%;
-  grid-area: 2 / 4 / 6 / 5;
+  border-bottom-right-radius: var(--default-border-radius);
 }

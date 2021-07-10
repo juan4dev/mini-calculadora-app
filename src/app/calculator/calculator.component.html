@@ -6,20 +6,40 @@
       [value]="screenValue"
       disabled
     />
-    <div class="calculator-keys">
-      <button type="button" (click)="getOperator('+')" class="operator">
-        +
+
+    <div class="special-operators">
+      <button type="button" (click)="getResetValues()" class="all-clear">
+        AC
       </button>
-      <button type="button" (click)="getOperator('-')" class="operator">
-        -
+    </div>
+
+    <div class="operators">
+      <button type="button" (click)="getOperator('/')" class="operator">
+        &divide;
       </button>
 
       <button type="button" (click)="getOperator('*')" class="operator">
         &times;
       </button>
-      <button type="button" (click)="getOperator('/')" class="operator">
-        &divide;
+
+      <button type="button" (click)="getOperator('-')" class="operator">
+        -
       </button>
+      <button type="button" (click)="getOperator('+')" class="operator">
+        +
+      </button>
+
+      <button
+        type="button"
+        (click)="executeOperation()"
+        class="equal-sign"
+        value="="
+      >
+        =
+      </button>
+    </div>
+
+    <div class="numbers">
       <button type="button" (click)="getNumber('7')">7</button>
       <button type="button" (click)="getNumber('8')">8</button>
       <button type="button" (click)="getNumber('9')">9</button>
@@ -31,20 +51,13 @@
       <button type="button" (click)="getNumber('1')">1</button>
       <button type="button" (click)="getNumber('2')">2</button>
       <button type="button" (click)="getNumber('3')">3</button>
+    </div>
 
-      <button type="button" (click)="getNumber('0')">0</button>
-
-      <button type="button" (click)="getNumber('.')" class="decimal">.</button>
-      <button type="button" (click)="getResetValues()" class="all-clear">AC</button>
-
-      <button
-        type="button"
-        (click)="executeOperation()"
-        class="equal-sign"
-        value="="
-      >
-        =
+    <div class="cero-decimal">
+      <button type="button" (click)="getNumber('0')" class="number_cero">
+        0
       </button>
+      <button type="button" (click)="getNumber('.')" class="decimal">.</button>
     </div>
   </div>
 </form>
