@@ -14,9 +14,13 @@ export class CalculatorComponent {
     this.calculator = this.calculatorService.calculator;
   }
   public getNumber(keyboardNumber: string) {
-    this.calculatorService.checkScreen(keyboardNumber);
-    this.calculator.presentValue = Number(this.calculator.screenValue);
-    this.calculatorService.carryOutOperation();
+    if (this.calculator.getScreenLength() === 9) {
+      alert('Maximum number of numbers allowed 9');
+    } else {
+      this.calculatorService.checkScreen(keyboardNumber);
+      this.calculator.presentValue = Number(this.calculator.screenValue);
+      this.calculatorService.carryOutOperation();
+    }
   }
 
   public getResetValues() {

@@ -7,7 +7,7 @@
   --default-border-radius: 0.5rem;
   --default-padding: 0.05rem;
   --default-gap: 0;
-  --width-calculator: 10rem;
+  --width-calculator: 10.5rem;
 }
 
 button {
@@ -28,8 +28,8 @@ button {
   margin-right: -50%;
   transform: scale(2) translate(-25%, -25%);
   display: grid;
-  grid-template-columns: repeat(4, minmax(30px, 1fr));
-  grid-template-rows: repeat(7, minmax(30px, 1fr));
+  grid-template-columns: repeat(4, minmax(1.875rem, 1fr));
+  grid-template-rows: repeat(7, minmax(1.875rem, 1fr));
   grid-template-areas:
     "calculator-screen calculator-screen calculator-screen calculator-screen"
     "calculator-screen calculator-screen calculator-screen calculator-screen"
