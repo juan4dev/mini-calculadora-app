@@ -1,4 +1,15 @@
-# 0.1.0 (2021-07-11)
+# [0.2.0](https://github.com/jdlopez-dev/mini-calculadora-app/compare/v0.1.0...v0.2.0) (2021-07-11)
+
+
+### Features
+
+* :lipstick: change px to rem ([80fdb5c](https://github.com/jdlopez-dev/mini-calculadora-app/commit/80fdb5cce4469303e09b2c0e4f2e20f92a325e7e))
+* :lipstick: increase calculator size ([bc6c49a](https://github.com/jdlopez-dev/mini-calculadora-app/commit/bc6c49ac11416f27682994214b727cc5d8009899))
+* :sparkles: add alert when it exceeds the number of characters allowed ([085daf2](https://github.com/jdlopez-dev/mini-calculadora-app/commit/085daf2f71e5d001e704e5198adb097d79bf5de3))
+
+
+
+# [0.1.0](https://github.com/jdlopez-dev/mini-calculadora-app/compare/8d66dfcdf1721c380fe6c2ee118e37c46fc2b64e...v0.1.0) (2021-07-11)
 
 
 ### Bug Fixes
