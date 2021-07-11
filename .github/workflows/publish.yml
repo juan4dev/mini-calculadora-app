@@ -1,9 +1,12 @@
 name: Publish
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 jobs:
-  Release-changelog:
+  release-changelog:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -25,3 +28,19 @@ jobs:
           tag_name: ${{ steps.changelog.outputs.tag }}
           release_name: ${{ steps.changelog.outputs.tag }}
           body: ${{ steps.changelog.outputs.clean_changelog }}
+  deploy:
+    needs: release-changelog
+    runs-on: ubuntu-latest
+    environment:
+      name: release
+    steps:
+      - uses: actions/checkout@v2
+      - name: Angular Deploy gh-pages Actions
+        uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.2
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          build_configuration: production
+          base_href: /mini-calculadora-app/ 
+          deploy_branch: gh-pages 
+          angular_dist_build_folder: dist/mini-calculadora-app
+          run_lint: true
