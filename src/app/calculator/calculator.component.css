@@ -6,7 +6,7 @@
   --bg-color-operators: rgb(255, 162, 52);
   --default-border-radius: 0.5rem;
   --default-padding: 0.05rem;
-  --default-gap: 0.4px;
+  --default-gap: 0;
   --width-calculator: 10rem;
 }
 
@@ -42,7 +42,7 @@ button {
 
 .calculator-screen {
   grid-area: calculator-screen;
-  text-align-last: right;
+  text-align: right;
   color: white;
   font-size: 2rem;
   background-color: var(--bg-color-screen);
@@ -84,6 +84,7 @@ button {
   grid-area: numbers;
   display: grid;
   gap: var(--default-gap);
+  grid-gap: var(--default-gap) var(--default-gap);
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
 }
