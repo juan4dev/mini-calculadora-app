@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Calculator } from './models/calculator';
+import { Calculator } from './models/Calculator';
 
 @Component({
   selector: 'app-calculator',
