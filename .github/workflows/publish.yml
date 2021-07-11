@@ -1,7 +1,9 @@
 name: Publish
 
-on: 
-  deployment
+on:
+  push:
+    branches:
+      - main
 jobs:
   Release-changelog:
     runs-on: ubuntu-latest
