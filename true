@@ -1,0 +1,35 @@
+# 0.1.0 (2021-07-11)
+
+
+### Bug Fixes
+
+* :bug: allow to write more numbers ([39fa19d](https://github.com/jdlopez-dev/mini-calculadora-app/commit/39fa19daeab4c2fb56c4d49c519d373d0f5fe78e))
+* :bug: bad reference ([790407a](https://github.com/jdlopez-dev/mini-calculadora-app/commit/790407ae39f775acce4d9a87eca15689a31ebcf6))
+* :bug: Error when checking value ([58304cf](https://github.com/jdlopez-dev/mini-calculadora-app/commit/58304cf0ece5f80c2047bc5d9a5df9bac86a57cf))
+* :bug: fix text aling calculator screen ([48985bd](https://github.com/jdlopez-dev/mini-calculadora-app/commit/48985bd308748193904f26d8c2ad2a7c83d02d34))
+* :construction_worker: fix identantion ([eade465](https://github.com/jdlopez-dev/mini-calculadora-app/commit/eade465a563a6e6087bf8c8cbf5033aa4e970b68))
+* :construction_worker: tests in the deployment configuration ([d1c7b99](https://github.com/jdlopez-dev/mini-calculadora-app/commit/d1c7b99ee33bd766a92d85d327b9987288a60608))
+* :fire: ([3861f24](https://github.com/jdlopez-dev/mini-calculadora-app/commit/3861f24398b53935a173c2a07989dbcd2aa1752c))
+* :wrench: tests in the deployment configuration ([02bfc8d](https://github.com/jdlopez-dev/mini-calculadora-app/commit/02bfc8dca5126d3258300667591afd49bfda45e5))
+
+
+### Features
+
+* :art: add model calculator ([2a64615](https://github.com/jdlopez-dev/mini-calculadora-app/commit/2a646151fdebcc7f48f14614bcb68009f73dfbc0))
+* :construction: add FormsModule import ([51a3a17](https://github.com/jdlopez-dev/mini-calculadora-app/commit/51a3a17c27261b6cbdb7faa6f8c7a7b6cdf40f41))
+* :lipstick: ([6257fa7](https://github.com/jdlopez-dev/mini-calculadora-app/commit/6257fa7a4e66fa0d1c8baba2cac2a0d0d9d4ac34))
+* :lipstick: ([c419aff](https://github.com/jdlopez-dev/mini-calculadora-app/commit/c419aff7a7204b0882f4c2bbd163f84127a4ee1e))
+* :lipstick: Update favicon ([9ebe1d9](https://github.com/jdlopez-dev/mini-calculadora-app/commit/9ebe1d944f864c3ade90962e5a298031373e9418))
+* :sparkles: add calculator component ([3855290](https://github.com/jdlopez-dev/mini-calculadora-app/commit/38552907ec03c3ff81802ff60b4da1a29dd2186c))
+* :sparkles: add decimal operator ([6c88071](https://github.com/jdlopez-dev/mini-calculadora-app/commit/6c880715ba5934920f3615b862bc33d6a385d05a))
+* :sparkles: add operations ([49d7684](https://github.com/jdlopez-dev/mini-calculadora-app/commit/49d7684d516dc1adbc3f2d45065d00566711c8a7))
+* :sparkles: clean defatult page and add first calculator design ([8d66dfc](https://github.com/jdlopez-dev/mini-calculadora-app/commit/8d66dfcdf1721c380fe6c2ee118e37c46fc2b64e))
+* :zap: improve code performance ([9cc1977](https://github.com/jdlopez-dev/mini-calculadora-app/commit/9cc1977c0305e775b0c6e7962460bb325ce39853))
+
+
+### Reverts
+
+* Revert "chore: :poop: test build failed" ([3d820da](https://github.com/jdlopez-dev/mini-calculadora-app/commit/3d820da06a73c1dc588ccbe3fe5ca0df6d6ae7b4))
+
+
+
