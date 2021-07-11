@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Calculator } from './models/calculator';
 
 @Component({
   selector: 'app-calculator',
@@ -6,17 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calculator.component.css'],
 })
 export class CalculatorComponent {
-  public presentValue: number = 0;
-  public storedValue: number = 0;
 
-  public operator: string | undefined;
-  public screenValue: number | string = 0;
-  private needReset: boolean = false;
+  public calculator: Calculator;
 
-  constructor() {}
+  constructor() {
+    this.calculator = new Calculator();
+  }
   public getNumber(keyboardNumber: string) {
     this.checkScreen(keyboardNumber);
-    this.presentValue = Number(this.screenValue);
+    this.calculator.presentValue = Number(this.calculator.screenValue);
     this.carryOutOperation();
   }
 
@@ -25,50 +24,50 @@ export class CalculatorComponent {
   }
 
   public executeOperation() {
-    this.screenValue = this.storedValue;
+    this.calculator.screenValue = this.calculator.storedValue;
 
-    this.needReset = true;
+    this.calculator.needReset = true;
   }
 
   public getOperator(operator: string) {
-    this.operator = operator;
-    this.needReset = false;
+    this.calculator.operator = operator;
+    this.calculator.needReset = false;
     this.resetScreenAndSaveValue();
   }
 
   private resetScreenAndSaveValue() {
-    this.storedValue = Number(this.screenValue);
-    this.screenValue = '';
+    this.calculator.storedValue = Number(this.calculator.screenValue);
+    this.calculator.screenValue = '';
   }
 
   private carryOutOperation() {
-    if (this.operator && this.presentValue) {
+    if (this.calculator.operator && this.calculator.presentValue) {
       var tempOperation = eval(
-        `${this.storedValue}${this.operator}${this.presentValue}`
+        `${this.calculator.storedValue}${this.calculator.operator}${this.calculator.presentValue}`
       );
 
-      this.storedValue =
+      this.calculator.storedValue =
         Math.round((tempOperation + Number.EPSILON) * 100) / 100;
 
-      this.operator = undefined;
+      this.calculator.operator = undefined;
     }
   }
 
   private resetValues() {
-    this.screenValue = 0;
-    this.presentValue = 0;
-    this.storedValue = 0;
+    this.calculator.screenValue = 0;
+    this.calculator.presentValue = 0;
+    this.calculator.storedValue = 0;
   }
 
   private checkScreen(keyboardNumber: string) {
-    if (this.needReset) {
+    if (this.calculator.needReset) {
       this.resetValues();
-      this.needReset = false;
-      this.screenValue = keyboardNumber;
-    } else if (this.screenValue) {
-      this.screenValue += keyboardNumber;
+      this.calculator.needReset = false;
+      this.calculator.screenValue = keyboardNumber;
+    } else if (this.calculator.screenValue) {
+      this.calculator.screenValue += keyboardNumber;
     } else {
-      this.screenValue = keyboardNumber;
+      this.calculator.screenValue = keyboardNumber;
     }
   }
 }
